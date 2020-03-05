@@ -18,7 +18,7 @@ jobs:
     - name: Set up Java version
       uses: actions/setup-java@v1
       with:
-        java-version: '8'
+        java-version: '11'
 
     - name: Build with Maven
       run: mvn clean install
@@ -28,5 +28,5 @@ jobs:
       with:
         app-name: 'sergey838'
         slot-name: 'sergey838-dev'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9fdad1752f0143d7b88b52ecd7ff75fc }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3af1064f0f054b25969f7ba5d6bfb8cf }}
         package: '${{ github.workspace }}/target/*.war'
