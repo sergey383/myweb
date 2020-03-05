@@ -1,0 +1,32 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy WAR app to Azure Web App - sergey838(sergey838-dev)
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Java version
+      uses: actions/setup-java@v1
+      with:
+        java-version: '8'
+
+    - name: Build with Maven
+      run: mvn clean install
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: 'sergey838'
+        slot-name: 'sergey838-dev'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9fdad1752f0143d7b88b52ecd7ff75fc }}
+        package: '${{ github.workspace }}/target/*.war'
