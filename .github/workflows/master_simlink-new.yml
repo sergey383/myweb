@@ -29,4 +29,4 @@ jobs:
         app-name: 'simlink-new'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_90d000b0ca824d7c8630e2ff7c641a58 }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '${{ github.workspace }}/target/*.war'
